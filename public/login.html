@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+      body{
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .login{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      button{
+        margin-top: 10px;
+        padding: 5px 25%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login">
+          <h1>Login</h1>
+          <form id="signup-form" action="/login" method="post">
+            <input id="input" autocomplete="off" placeholder="Digite seu nome" name="user"/><br>
+              <button>Enviar</button>
+          </form>
+      </div>
+      <script>
+        let form = document.getElementById('signup-form');
+        var input = document.getElementById('input');
+
+        form.addEventListener('submit', (event) => {
+            sessionStorage.setItem('name', input.value)
+            console.log('Salvo: ' + input.value)
+        });
+
+      </script>
+  </body>
+</html>
