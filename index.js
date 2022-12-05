@@ -6,7 +6,6 @@ const app = express();
 const http = require('http')
 const server = http.createServer(app)
 
-
 //configs
 app.use(express.static('public'))
 const { Server } = require("socket.io");
@@ -20,7 +19,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-
 
 //routes
 app.get('/', function(req, res){
@@ -45,7 +43,6 @@ app.post('/login', function(req, res){
     }
 })
 
-
 app.get('/stream', (req, res) =>{
     if(req.session.name){
         res.sendFile(__dirname + '/public/stream.html')
@@ -68,7 +65,6 @@ io.on('connection', (socket) => {
         io.emit('message', msg);
     });
 });
-
 
 //start server
 server.listen('8000', () => {
