@@ -1,7 +1,6 @@
 //imports
 const express = require('express')
 const session = require('express-session')
-const bodyParser = require('body-parser')
 const app = express();
 const http = require('http')
 const server = http.createServer(app)
@@ -11,8 +10,8 @@ app.use(express.static('public'))
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
 
 app.use(session({
     secret: '2C44-4D44-WppQ38S',
